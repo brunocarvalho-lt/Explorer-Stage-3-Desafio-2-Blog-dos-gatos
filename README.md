@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img alt="Projeto Blog dos gatos" src="./assets/readme.jpg" width="100%">
+  <img alt="Projeto Blog dos gatos" src="./Assets/readme.jpg" width="100%">
 </p>
 
 <p align="center">
