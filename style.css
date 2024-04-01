@@ -1,0 +1,340 @@
+/* Configurações Gerais */
+
+* {
+  margin: 0; 
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --hue1-: 195;
+  --hue2-: 240;
+  --color-back-moblab: hsl(0, 0%, 100%);
+  --color-back-topdown: hsl(var(--hue1-), 91%, 25%);
+  --color-back-input: hsl(var(--hue1-), 46%, 40%);
+  --color-text-title: hsl(var(--hue2-), 6%, 13%);
+  --color-text-write: hsl(var(--hue2-), 5%, 7%);
+}
+
+html,
+body,
+input {
+  font-family: "Mulish", sans-serif;
+}
+
+
+/* Ajuste do corpo */
+
+body {
+  background-color: var(--color-back-moblab);
+
+  font-size: 1.6rem;
+}
+
+#app {
+  display: grid;
+  grid-template: 
+  "H H" 7.2rem
+  "M M" max-content
+  "F F" 6.4rem / 1fr 1fr;
+  
+  height: 100vh;
+}
+
+header {
+  grid-area: H;
+}
+
+main {
+  grid-area: M;
+}
+
+footer {
+  grid-area: F;
+}
+
+
+
+
+/* Grid header */
+
+header {
+  background-color: var(--color-back-topdown);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  padding: 1.2rem 2.8rem;
+  gap: 2.6rem;
+}
+
+.profile {
+  max-height: 4.2rem;
+  max-width: 4.2rem;
+  
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo {
+  max-height: 4rem;
+  max-width: 4rem;
+  
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+header form {
+  flex: 1;
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;  
+}
+
+.input-wrapper input {
+  background-color: var(--color-back-input);
+  color: var(--color-back-moblab);
+  font-weight: 500;
+  
+  width: 100%;
+  
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.4rem; 
+}
+
+.input-wrapper input::placeholder {
+  color: var(--color-back-moblab);
+  
+  min-height: 2.6rem;
+  
+  opacity: 1;
+}
+
+
+/* Grid main */
+
+Main {
+  background-color: var(--color-back-moblab);
+  overflow-y: scroll;
+}
+
+main h1, h2 {
+  color: var(--color-text-title);
+  font-weight: 900;
+}
+
+main h1 {
+  font-size: 2.4rem;
+  line-height: 3.8rem;
+}
+
+main .story h1 {
+  padding-top: 2.4rem;
+}
+
+main h2 {
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+}
+
+.panel {
+  width: 100%;
+  
+  display:flex;
+  justify-content: center;
+  position: relative;
+
+  margin-bottom: 2.4rem;
+}
+
+.panel img {
+  
+  display: block;
+  
+  border-radius: .5rem;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+.container {
+  max-width: 44rem;
+  margin: 0 auto 2.4rem;
+}
+
+.story,
+.articles {
+  padding: 0 1rem 1rem;
+}
+
+.story p {
+  color: var(--color-text-write);
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  font-weight: 300;
+}
+
+.articles {
+  display: grid;
+  grid-template-rows: max-content repeat(5, 1fr);
+
+  gap: 2.4rem;
+}
+
+.picture {
+  height: 12rem;
+  display: grid;
+  grid-template-columns: max-content max-content;
+
+  gap: 1.8rem;
+
+  overflow-x: hidden;
+}
+
+.picture img {
+  max-width: 12rem;
+  display: block;
+
+  position: relative;
+  top: 1.5rem;
+  
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.details p {
+  color: var(--color-text-write);
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  font-weight: 300;
+
+  max-width: 23.5rem;
+}
+
+.review-button {
+  display: flex;
+  margin: 0.8rem 0 3.6rem;
+  gap: 1.6rem;
+}
+
+.cool-review {
+  background: none;
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+.bad-review {
+  background: none;
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+}
+
+/* Grid footer */
+
+footer {
+  background-color: var(--color-back-topdown);
+  color: var(--color-back-moblab);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  font-weight: 500;
+  
+  padding: 1.6rem 0 1.6rem 1.6rem;
+  overflow: hidden;
+}
+
+
+/* Animações */
+
+header {
+  --startY: -100%;
+  animation: move .4s
+}
+
+footer {
+  --startY: 100%;
+  animation: move .4s;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+
+.picture {
+  --delay: .4s;
+  animation: appear .4s var(--delay) backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+
+.panel img:hover,
+.picture img:hover {
+  filter: hue-rotate(0deg) contrast(101%) saturate(160%);
+}
+
+.picture img:hover {
+  transform: scale(1.01) rotate(-0deg);
+}
+
+.review-button button:hover {
+  filter: hue-rotate(5deg) contrast(130%) saturate(200%);
+}
+
+
+/* Responsividade */
+
+@media (min-width: 40em) {
+
+  .container {
+    max-width: 1020px;
+    display: flex;
+
+    align-items: start;
+    justify-content: center;
+
+    margin-top: 3.4rem;
+    gap: 1.4rem;
+
+  }
+
+  .introdution {
+    max-width: 458px;
+  }
+
+  .articles {
+    max-width: 600px ;
+  }
+ }
